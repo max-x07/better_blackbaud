@@ -1,0 +1,346 @@
+<!--uplaoded-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Locked In</title>
+
+<style>
+/*Nav Styling*/
+header {
+    background-color: rgb(239, 154, 154);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    z-index: 1000;
+}
+
+header img {
+    height: 50px;
+    margin-left: 15px;
+}
+
+/* General Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(255, 223, 190);
+    background-size: cover;
+    margin: 0;
+}
+
+/* Container for inputs styling*/
+.container {
+    background-color: #dfcbb8;
+    width: 30%;
+    padding: 20px;
+    border-radius: 5%;
+}
+
+/*Input Styling*/
+input {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-left:94px;
+}
+
+/*Submit Styling*/
+.button-container{
+    text-align:center;
+}
+
+button{
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left:100px;
+}
+
+button:hover{
+    background-color: rgb(86, 36, 36);
+}
+
+/* Password Requirements Message*/
+#message {
+  display:none;
+  background: #dfcbb8;
+  border-radius: 15px;
+  border-radius:5px;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Password Requirements Message*/
+#cmessage {
+  display:none;
+  background: #dfcbb8;
+  border-radius: 15px;
+  border-radius:5px;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#cmessage p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: rgb(209, 120, 120);
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+  color:rgb(209,120,120)
+}
+
+</style>
+</head>
+
+<body>
+<!--Navigation-->
+<header>
+    <img src="https://bbk12e1-cdn.myschoolcdn.com/ftpimages/908/logo/ElizabethSetonCrest.png">
+        <nav class="navbar navbar-expand-lg w-100">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="landing.html">Elizabeth Seton High School - Locked In</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                </div>
+            </div>
+        </nav>
+</header>
+    
+<!-- Title -->
+<div class="ES">
+    <h1>Reset Pasword</h1>
+</div>
+  
+<!--Imput Fields-->
+<div class="container">
+    <form id="password-reset" action="login.html">
+
+      <!--Password-->
+      <label for="psw">New Password -</label>
+      <br>
+
+      <!--Enter Password + password requirement-->
+      <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+      <br>
+
+      <!--Password-->
+      <label for="psw">Confirm Password -</label>
+      <br>
+
+      <!--Confirm Password + Requirements-->
+      <input type="password" id="cpsw" name="cpsw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+      <br>
+
+      <!-- Submit Button -->
+      <button type="submit">Reset Password</button>
+ 
+    </form>
+</div>
+
+
+<!--Password requirements-->
+<div id="message">
+    <h3>Password must contain at least on of the following:</h3>
+    <p id="letter" class="invalid">A lowercase letter</p>
+    <p id="capital" class="invalid">A capital uppercase letter</p>
+    <p id="number" class="invalid">A number</p>
+    <p id="length" class="invalid">Minimum 8 characters</p>
+    <p id="same" class="invalid">Passwords must be the same</p>
+</div>
+  
+<!--Conf Password requirements-->
+<div id="cmessage">
+    <h3>Password must contain at least on of the following:</h3>
+    <p id="cletter" class="invalid">A lowercase letter</p>
+    <p id="ccapital" class="invalid">A capital uppercase letter</p>
+    <p id="cnumber" class="invalid">A number</p>
+    <p id="clength" class="invalid">Minimum 8 characters</p>
+    <p id="csame" class="invalid">Passwords must be the same</p>
+</div>
+
+<!--Java Time-->
+<script>
+    //Variables for Requirements (Pass)
+    var myInput = document.getElementById("psw");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+
+    // Show Requirements (Pass)
+    myInput.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+    }
+    
+    // Hide Requirements (Pass)
+    myInput.onblur = function() {
+    document.getElementById("message").style.display = "none";
+    }
+
+    // Typing (Pass)
+    myInput.onkeyup = function() {
+
+        //Apply lowercase
+        var lowerCaseLetters = /[a-z]/g;
+        if(myInput.value.match(lowerCaseLetters)) {  
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+        } else {
+        capital.classList.remove("valid");
+        capital.classList.add("invalid");
+        }
+
+        //Apply capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if(myInput.value.match(upperCaseLetters)) {  
+        capital.classList.remove("invalid");
+        capital.classList.add("valid");
+        } else {
+        capital.classList.remove("valid");
+        capital.classList.add("invalid");
+        }
+    
+        // Apply numbers
+        var numbers = /[0-9]/g;
+        if(myInput.value.match(numbers)) {  
+        number.classList.remove("invalid");
+        number.classList.add("valid");
+        } else {
+        number.classList.remove("valid");
+        number.classList.add("invalid");
+        }
+      
+        // Apply length
+        if(myInput.value.length >= 8) {
+        length.classList.remove("invalid");
+        length.classList.add("valid");
+        } else {
+        length.classList.remove("valid");
+        length.classList.add("invalid");
+        }
+
+    }
+
+    //Variables for Requirements (Conf Pass)
+    var cmyInput = document.getElementById("cpsw");
+    var cletter = document.getElementById("cletter");
+    var ccapital = document.getElementById("ccapital");
+    var cnumber = document.getElementById("cnumber");
+    var clength = document.getElementById("clength");
+
+    // Show Requirements (Conf Pass)
+    cmyInput.onfocus = function() {
+    document.getElementById("cmessage").style.display = "block";
+    }
+    
+    // Hide Requirements (Conf Pass)
+    cmyInput.onblur = function() {
+    document.getElementById("cmessage").style.display = "none";
+    }
+
+    // Typing (ConfPass)
+    cmyInput.onkeyup = function() {
+
+        //Apply lowercase
+        var lowerCaseLetters = /[a-z]/g;
+        if(cmyInput.value.match(lowerCaseLetters)) {  
+        cletter.classList.remove("invalid");
+        cletter.classList.add("valid");
+        } else {
+        cletter.classList.remove("valid");
+        cletter.classList.add("invalid");
+        }
+
+        //Apply capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if(cmyInput.value.match(upperCaseLetters)) {  
+        ccapital.classList.remove("invalid");
+        ccapital.classList.add("valid");
+        } else {
+        ccapital.classList.remove("valid");
+        ccapital.classList.add("invalid");
+        }
+    
+        // Apply numbers
+        var numbers = /[0-9]/g;
+        if(cmyInput.value.match(numbers)) {  
+        cnumber.classList.remove("invalid");
+        cnumber.classList.add("valid");
+        } else {
+        cnumber.classList.remove("valid");
+        cnumber.classList.add("invalid");
+        }
+      
+        // Apply length
+        if(cmyInput.value.length >= 8) {
+        clength.classList.remove("invalid");
+        clength.classList.add("valid");
+        } else {
+        clength.classList.remove("valid");
+        clength.classList.add("invalid");
+        }
+
+    }
+
+//Ensure passwords match
+    document.getElementById("password-reset").addEventListener("submit", function(event) {
+    if (myInput.value !== cmyInput.value) {
+        alert("Passwords do not match!");
+        event.preventDefault();
+    }
+});
+</script>
+
+</body>
+</html>
