@@ -1,3 +1,5 @@
+<!--Done-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,17 +8,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Locked In</title>
-</head>
+    <style>
 
-<body>
+        /* General Page Styling */
+        body {
+            background-color: #fae7ba;
+            padding-top: 80px; 
+        }
 
-<!--Styling-->
-  <style>
-    body{
-      background-color: antiquewhite;
-    }
-       /* Navbar */
-       header {
+/*Nav Style*/
+        /* Header & Navbar */
+        header {
             background-color: rgb(239, 154, 154);
             position: fixed;
             top: 0;
@@ -34,7 +36,7 @@
             margin-left: 15px;
         }
 
-        /* Search Bar Nav */
+        /* Search Bar Styling */
         .search-container {
             display: flex;
             align-items: center;
@@ -55,43 +57,194 @@
             font-size: 14px;
             margin-left: 5px;
         }
+/*End nav styling*/
 
 
-  </style>
-<!--End Styling-->
+/*Site style*/
 
-<!--Main-->
+        /* Table Styling */
+        table {
+            margin: 30px auto;
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 85%;
+            border: 3px solid #961f1f;
+            background-color: #e37676;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f3d388;
+        }
+
+    </style>
+</head>
+<body>
+
 <!-- Navigation Bar -->
 <header>
-  <img src="https://bbk12e1-cdn.myschoolcdn.com/ftpimages/908/logo/ElizabethSetonCrest.png">
-  <nav class="navbar navbar-expand-lg w-100">
-      <div class="container-fluid">
-          <a class="navbar-brand" href="home.html">Locked In</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav me-auto">
+    <img src="https://bbk12e1-cdn.myschoolcdn.com/ftpimages/908/logo/ElizabethSetonCrest.png">
+    <nav class="navbar navbar-expand-lg w-100">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html">Locked In</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="maxSCHEDULE.html">Schedule</a></li>
                     <li class="nav-item"><a class="nav-link" href="rynGRADES.html">Grades</a></li>
                     <li class="nav-item"><a class="nav-link" href="rynCHATROOM.html">Class Chatroom</a></li>
-                    <li class="nav-item"><a class="nav-link" href="jadynUPCOMINGEVENTS.html">Upcoming Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jadynHOME.html">Upcoming Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="rynFACULTYANDSTAFFDIRECTORY.html">Contacts and Links</a></li>
                     <li class="nav-item"><a class="nav-link" href="rynFAQS.html">FAQs</a></li>
                     <li class="nav-item"><a class="nav-link" href="ritaSPORTS.html">Sports</a></li>
                     <li class="nav-item"><a class="nav-link" href="theoCLUBS.html">Clubs</a></li>
                     <li class="nav-item"><a class="nav-link" href="ritaPLANNER.html">Planner</a></li>
-              </ul>
+                </ul>
 
-              <!-- Search Bar -->
-              <div class="search-container">
-                  <input class="form-control me-2" type="search" placeholder="Type Here">
-                  <button class="button1">Search</button>
-              </div>
-          </div>
-      </div>
-  </nav>
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input class="form-control me-2" type="search" placeholder="Type Here">
+                    <button class="button1">Search</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatroom</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #chat-container {
+            width: 1400px;
+            height: 700px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        #chat-box {
+            height: 440px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+        .message {
+            background: #e3f2fd;
+            padding: 8px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            align-self: flex-start;
+            max-width: 80%;
+        }
+        .my-message {
+            background: #d1ffd1;
+            align-self: flex-end;
+        }
+        #input-container {
+            display: flex;
+        }
+        #message {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chat-container">
+        <h2>Chatroom</h2>
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="message" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const socket = io("http://localhost:3000");
+        const chatBox = document.getElementById("chat-box");
+
+        // Load chat history from localStorage
+        const savedMessages = JSON.parse(localStorage.getItem("chatHistory")) || [];
+        savedMessages.forEach(({ text, sender }) => addMessage(text, sender));
+
+        socket.on("message", (data) => {
+            addMessage(data.text, data.sender);
+            saveMessage(data);
+        });
+
+        function sendMessage() {
+            const msgInput = document.getElementById("message");
+            const message = msgInput.value.trim();
+            if (message) {
+                const data = { text: message, sender: "You" };
+                addMessage(data.text, data.sender);
+                saveMessage(data);
+                socket.emit("message", { text: message, sender: "Anonymous" }); // Sends message to server
+                msgInput.value = "";
+            }
+        }
+
+        function addMessage(msg, sender) {
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("message");
+            if (sender === "You") messageDiv.classList.add("my-message");
+            messageDiv.textContent = `${sender}: ${msg}`;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function saveMessage(msg) {
+            const chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
+            chatHistory.push(msg);
+            localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+        }
+    </script>
 
 </body>
 </html>
