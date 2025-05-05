@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Planner</title>
+
+  <!-- Link Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Navigation Styling */
+    header {
+      background-color: rgb(239, 154, 154);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      z-index: 1000;
+     
+    }
+
+    header img {
+      height: 50px;
+      margin-left: 15px;
+    }
+
+    /* Nav - Search Bar Styling */
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .form-control {
+      background-color: rgb(238, 224, 224);
+      border: none;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+
+    .button1 {
+      background-color: brown;
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      font-size: 14px;
+      margin-left: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: RGB(252, 15, 47);
+      margin: 0;
+      padding-top: 100px; /* add padding so content doesn't hide under fixed header */
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10px;
+    }
+
+    .section {
+      background: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .section h2 {
+      color:  RGB(252, 15, 47);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+     
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background: rbg(133, 4, 34);
+      color: white;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 10px 15px;
+      background: rbg(226,41,109);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #f74f9e;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<header>
+  <img src="https://bbk12e1-cdn.myschoolcdn.com/ftpimages/908/logo/ElizabethSetonCrest.png" alt="Logo">
+  <nav class="navbar navbar-expand-lg w-100">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="home.html">Locked In</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             <li class="nav-item"><a class="nav-link" href="maxSCHEDULE.html">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rynGRADES.html">Grades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rynCHATROOM.html">Class Chatroom</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jadynUPCOMINGEVENTS.html">Upcoming Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rynFACULTYANDSTAFFDIRECTORY.html">Contacts and Links</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rynFAQS.html">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ritaSPORTS.html">Sports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="theoCLUBS.html">Clubs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ritaPLANNER.html">Planner</a></li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+          <input class="form-control" type="search" placeholder="Type Here">
+          <button class="button1">Search</button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<!--menu time -->
+
+<div class="container">
+    
+    <section>
+        <h2>Seton's Menu</h2>
+        <table>
+            <tr>
+                <th>Monday(5,12,19,26)</th>
+                <th>Tuesday(6,13,20,27)</th>
+                <th>Wednesday(7,14,21,28)</th>
+                <th>Thursday(8,15,22,29)</th>
+                <th>Friday(9,16,23,30)</th>
+            </tr>
+            <tr>
+                <td>5/5: Spicy or Mild Chicken Sandwich </td>
+                <td>5/6: Beef or Chicken Empanadas </td>
+                <td>5/7: Beef or Cheese Ravioli </td>
+                <td>5/8: BBQ or Sweet Chili Chicken Wings</td>
+                <td>5/9: Cheese, Pepperoni or Sausage Pizza</td>
+            </tr>
+            <tr>
+                <td>5/12: Spicy or Mild Chicken Sandwich </td>
+                <td>5/13: Beef or Chicken Empanadas </td>
+                <td>5/14: Beef or Cheese Ravioli </td>
+                <td>5/15: BBQ or Sweet Chili Chicken Wings</td>
+                <td>5/16: Cheese, Pepperoni or Sausage Pizza</td>
+            </tr>
+            <tr>
+                <td>5/19: Spicy or Mild Chicken Sandwich </td>
+                <td>5/20: Beef or Chicken Empanadas </td>
+                <td>5/21: Beef or Cheese Ravioli </td>
+                <td>5/22: BBQ or Sweet Chili Chicken Wings</td>
+                <td>5/23: Cheese, Pepperoni or Sausage Pizza</td>
+            </tr>
+            <tr>
+                <td>5/26: Spicy or Mild Chicken Sandwich </td>
+                <td>5/27: Beef or Chicken Empanadas </td>
+                <td>5/28: Beef or Cheese Ravioli </td>
+                <td>5/29: BBQ or Sweet Chili Chicken Wings</td>
+                <td>5/30: Cheese, Pepperoni or Sausage Pizza</td>
+            </tr>
+        </table>
+    </section>
+
+
+</div>
+
+</body>
+</html>
